@@ -1,0 +1,17 @@
+<html ng-app="listaTelefonica">
+  <head>
+      <title>Lista Telefonica</title>
+
+      <script src="angular.min.js"></script>
+      <script>
+          angular.module("helloWorld", []);
+          angular.module("helloWorld").controller("helloWorldCtrl", function ($scope) {
+              $scope.message = "hello World!";
+          });
+      </script>
+  </head>
+  <body ng-controller="helloWorldCtrl">
+      {{message}}
+  </body>
+
+</html>
