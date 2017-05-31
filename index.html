@@ -4,7 +4,7 @@
 <head>
   <title>Lista Telefonica</title>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
   <script src="lib/angular/angular.min.js"></script>
   <script src="lib/angular/angular-messages.js"></script>
   <script src="lib/angular/angular-locale_pt-br.js"></script>
@@ -36,39 +36,17 @@
   </style>
   <script>
     angular.module("listaTelefonica", ["ngMessages"]);
-    angular.module("listaTelefonica").controller("listaTelefonicaCtrl", function functionName($scope) {
+    angular.module("listaTelefonica").controller("listaTelefonicaCtrl", function functionName($scope,$http) {
       $scope.app = "Lista Telefonica";
-      $scope.contatos = [{
-          nome: "Pedro",
-          telefone: "123456789",
-          data: new Date(),
-          operadora: {
-            nome: "Oi",
-            codigo: 14,
-            categoria: "celular"
-          }
-        },
-        {
-          nome: "Ana",
-          telefone: "789456123",
-          data: new Date(),
-          operadora: {
-            nome: "Vivo",
-            codigo: 15,
-            categoria: "celular"
-          }
-        },
-        {
-          nome: "Maria",
-          telefone: "4567891546",
-          data: new Date(),
-          operadora: {
-            nome: "Tim",
-            codigo: 41,
-            categoria: "celular"
-          }
-        }
-      ];
+      $scope.contatos = [];
+
+      var carregarContatos = function () {
+        $http.get("http://localhost:3412/contatos").then(function (data,status) {
+          console.log(data);
+          console.log(status);
+        });
+      };
+
       $scope.operadoras = [{
           nome: "oi",
           codigo: "14",
@@ -118,8 +96,8 @@
       $scope.ordenarPor = function(campo) {
         $scope.criterioDeOrdenacao = campo;
         $scope.direcaoDaOrdenacao = !$scope.direcaoDaOrdenacao;
-
       }
+      carregarContatos();
     })
   </script>
 </head>

@@ -1,0 +1,27 @@
+{
+  "name": "angularjs-course",
+  "version": "1.0.0",
+  "description": "Curso",
+  "scripts": {
+    "start": "browser-sync start --server --files 'index.html'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RI50N/AngularJS.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RI50N/AngularJS/issues"
+  },
+  "homepage": "https://github.com/RI50N/AngularJS#readme",
+  "devDependencies": {
+    "browser-sync": "^2.18.12"
+  },
+  "dependencies": {
+    "angular": "^1.6.4",
+    "angular-messages": "^1.6.4",
+    "bootstrap": "^3.3.7"
+  }
+}
